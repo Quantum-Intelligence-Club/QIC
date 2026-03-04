@@ -1,0 +1,147 @@
+.view-3 {
+  width: 100%;
+}
+.view-3 .line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--border-color);
+  margin: 8vw 0;
+}
+.view-3 .wrap .top .text {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4vw;
+}
+.view-3 .wrap .top .text h2 {
+  font-size: 10vw;
+  line-height: 11vw;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.view-3 .wrap .top .text h4 {
+  font-size: 4.6vw;
+  line-height: 7vw;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+.view-3 .wrap .line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--border-color);
+  margin: 8vw 0;
+}
+.view-3 .wrap .bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8vw;
+}
+.view-3 .wrap .bottom .elem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw;
+}
+
+
+.view-3 .wrap .bottom .elem video {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.view-3 .wrap .bottom .elem h3 {
+  font-size: 5.5vw;
+  font-weight: 400;
+}
+.view-3 .wrap .bottom .elem h5 {
+  font-size: 3.8vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.view-3 .wrap .bottom .elem h3 {
+  font-size: 5.5vw;
+  font-weight: 400;
+}
+.view-3 .wrap .bottom .elem h5 {
+  font-size: 3.8vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 3.6vw;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 1020px) {
+
+  .view-3 .line {
+    margin: 2vw 0;
+  }
+  .view-3 .wrap {
+    display: flex;
+    padding: 2vw 0;
+  }
+  .view-3 .wrap .top .text {
+    padding: 2vw 0;
+    gap: 1vw;
+    position: sticky;
+    top: 0;
+  }
+  .view-3 .wrap .top .text h2 {
+    font-size: 4.5vw;
+    line-height: 5vw;
+  }
+  .view-3 .wrap .top .text h4 {
+    font-size: 1.5vw;
+    line-height: 2vw;
+    font-weight: 200;
+  }
+  .view-3 .wrap .line {
+    height: auto;
+    width: 1px;
+    margin: 0 2vw;
+    align-self: stretch;
+  }
+  .view-3 .wrap .bottom {
+    gap: 2vw;
+    display: grid;
+    grid-template-areas: "a a b b" "a a b b" "c c d d" "c c d d";
+  }
+  .view-3 .wrap .bottom .elem {
+    height: 23vw;
+    gap: 0.6vw;
+  }
+  .view-3 .wrap .bottom .elem .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    will-change: transform;
+  }
+  .view-3 .wrap .bottom .elem .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .view-3 .wrap .bottom .elem h3 {
+    font-size: 1.5vw;
+  }
+  .view-3 .wrap .bottom .elem h5 {
+    font-size: 0.95vw;
+  }
+  .view-3 .wrap .bottom .a {
+    grid-area: a;
+  }
+  .view-3 .wrap .bottom .b {
+    grid-area: b;
+  }
+  .view-3 .wrap .bottom .c {
+    grid-area: c;
+  }
+  .view-3 .wrap .bottom .d {
+    grid-area: d;
+  }
+
+}

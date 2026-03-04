@@ -1,0 +1,46 @@
+@media (min-width: 1020px) {
+
+  .view-4 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 4vw;
+  }
+  .view-4 .top {
+    flex-direction: column;
+    gap: 0;
+    width: 60%;
+  }
+  .view-4 .top svg {
+    width: 5rem;
+  }
+  .view-4 .top .text h5 {
+    font-size: 1vw;
+    margin: 1vw 0;
+  }
+  .view-4 .top .text h1 {
+    font-size: 6vw;
+    line-height: 6vw;
+  }
+  .view-4 .line {
+    display: block;
+    height: auto;
+    width: 1px;
+    background-color: var(--border-color);
+    margin: 0 3vw;
+    align-self: stretch;
+  }
+  .view-4 .bottom {
+    width: 30%;
+    justify-content: space-between;
+  }
+  .view-4 .bottom h4 {
+    font-size: 1.8vw;
+    line-height: 2.8vw;
+  }
+  .view-4 .bottom button {
+    padding: 0.6vw 1.3vw;
+    font-size: 1vw;
+  }
+
+}

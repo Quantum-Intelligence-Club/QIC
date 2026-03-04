@@ -1,0 +1,205 @@
+footer .line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--border-color);
+  margin: 8vw 0;
+}
+footer .wrap-main .main .top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18vw;
+}
+footer .wrap-main .main .top .t-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+footer .wrap-main .main .top .t-top .logos {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+footer .wrap-main .main .top .t-top .logos svg,
+footer .wrap-main .main .top .t-top .logos img {
+  height: 13vw;
+}
+footer .wrap-main .main .top .t-top .logos #logo-text-footer {
+  font-size: 10vw;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+footer .wrap-main .main .top .t-top .logos #svg11433201360 {
+  height: 4.5vw;
+}
+footer .wrap-main .main .top .t-top .address {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+footer .wrap-main .main .top .t-top .address p {
+  font-family: sans-serif;
+  font-size: 3.7vw;
+  font-weight: 200;
+}
+footer .wrap-main .main .top .links {
+  display: flex;
+  gap: 4vw;
+}
+footer .wrap-main .main .top .links .link {
+  height: 8vw;
+  width: 8vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+footer .wrap-main .main .top .links .link a {
+  text-transform: uppercase;
+  font-size: 4vw;
+  font-weight: 200;
+  color: var(--foreground-text);
+  text-decoration: none;
+}
+footer .wrap-main .main .bottom {
+  display: flex;
+  flex-direction: column;
+}
+footer .wrap-main .main .bottom .elem {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8vw;
+}
+footer .wrap-main .main .bottom .elem h3 {
+  font-size: 6.3vw;
+  font-weight: 400;
+}
+footer .wrap-main .main .bottom .elem h4 {
+  font-size: 3.8vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 3.4vw;
+  letter-spacing: 0.6px;
+}
+footer .wrap-main .main .bottom .elem button {
+  border: none;
+  background-color: var(--foreground-text);
+  color: var(--background-bg);
+  text-transform: uppercase;
+  padding: 2.6vw 4vw;
+  font-size: 3.5vw;
+  font-weight: 300;
+  letter-spacing: 1px;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  width: fit-content;
+}
+footer .f-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 4vw;
+  letter-spacing: 0.5px;
+}
+footer .f-bottom h4 {
+  font-size: 3.7vw;
+  font-weight: 300;
+}
+footer .f-bottom h4 a {
+  color: var(--foreground-text);
+}
+footer .f-bottom .right {
+  display: flex;
+  gap: 8vw;
+}
+footer .f-bottom .right h5 {
+  font-size: 3.8vw;
+  font-weight: 200;
+}
+
+@media (min-width: 1020px) {
+
+  footer .wrap-main .main {
+    display: flex;
+  }
+  footer .wrap-main .main .top {
+    width: 35%;
+    gap: 4vw;
+  }
+  footer .wrap-main .main .top .t-top .logos {
+    gap: 0.5vw;
+  }
+  footer .wrap-main .main .top .t-top .logos svg,
+  footer .wrap-main .main .top .t-top .logos img {
+    height: 3.5vw;
+  }
+  footer .wrap-main .main .top .t-top .logos #logo-text-footer {
+    font-size: 3vw;
+  }
+  footer .wrap-main .main .top .t-top .logos #svg11433201360 {
+    height: 1.1vw;
+  }
+  footer .wrap-main .main .top .t-top .address p {
+    font-size: 1.2vw;
+  }
+  footer .wrap-main .main .top .links {
+    gap: 1.2vw;
+  }
+  footer .wrap-main .main .top .links .link {
+    height: 2.3vw;
+    width: 2.3vw;
+    border: 1px solid var(--border-color);
+  }
+  footer .wrap-main .main .top .links .link a {
+    font-size: 1vw;
+  }
+  footer .wrap-main .main .line {
+    height: auto;
+    width: 1px;
+    margin: 0;
+    align-self: stretch;
+  }
+  footer .wrap-main .main .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 65%;
+    padding: 0 4.5vw;
+  }
+  footer .wrap-main .main .bottom .elem {
+    gap: 0.5vw;
+  }
+  footer .wrap-main .main .bottom .elem h3 {
+    font-size: 1.8vw;
+  }
+  footer .wrap-main .main .bottom .elem h4 {
+    font-size: 1.02vw;
+  }
+  footer .wrap-main .main .bottom .elem button {
+    padding: 0.6vw 1.3vw;
+    font-size: 1vw;
+  }
+  footer .wrap-main .main .bottom .line {
+    display: none;
+  }
+  footer #lastline {
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+  }
+  footer .f-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  footer .f-bottom h4 {
+    font-size: 1vw;
+  }
+  footer .f-bottom .right {
+    gap: 2vw;
+  }
+  footer .f-bottom .right h5 {
+    font-size: 1vw;
+  }
+
+}

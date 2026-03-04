@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Syne;
+  src: url("/Syne-Regular.woff2");
+}
+
+:root {
+  --background-bg: #fdfbf5;
+  --foreground-text: #191919;
+  --border-color: #000000;
+  --token-efbc6c56-80fe-4475-9b37-9684d6e92632: rgb(25, 25, 25);
+  --token-c5c4fdcb-9482-48bb-aedf-353188472aae: rgb(25, 25, 25);
+}
+
+[data-theme="dark"] {
+  --background-bg: #000000;
+  --foreground-text: #fdfbf5;
+  --border-color: #fdfbf5;
+  --token-efbc6c56-80fe-4475-9b37-9684d6e92632: #fdfbf5;
+  --token-c5c4fdcb-9482-48bb-aedf-353188472aae: #fdfbf5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Syne, sans-serif;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  padding: 3vw;
+  background-color: var(--background-bg);
+  color: var(--foreground-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+main {
+  width: 100%;
+  padding: 5vw 6vw;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-bg);
+}
+
+
+.hovering-elements {
+  position: relative;
+  width: fit-content;
+  padding-bottom: 0.2vw;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.hovering-elements::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 0%;
+  background-color: var(--border-color);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+.hovering-elements:hover::after {
+  width: 100%;
+}
+
+@media (min-width: 1020px) {
+  body {
+    padding: 1.2vw;
+  }
+  main {
+    padding: 2.4vw 3.3vw;
+  }
+}
+
+[data-theme="light"] #light {
+  display: block;
+}
+[data-theme="light"] #dark {
+  display: none;
+}
+[data-theme="light"] .hovering-elements::after {
+  background-color: #000;
+}
+
+[data-theme="dark"] #light {
+  display: none;
+}
+[data-theme="dark"] #dark {
+  display: block;
+}
+[data-theme="dark"] .hovering-elements::after {
+  background-color: #fdfbf5;
+}
+
+

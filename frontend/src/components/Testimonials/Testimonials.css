@@ -1,0 +1,223 @@
+/* Testimonials Section */
+.view-testi {
+  width: 100%;
+  padding: 8vw 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+  background-color: var(--background-bg);
+  overflow: hidden;
+}
+
+.view-testi .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 4vw;
+  padding: 0 4vw;
+}
+
+.view-testi .header h5 {
+  font-size: 3.8vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.view-testi .header h2 {
+  font-size: 10vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.view-testi .scroll-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+/* Gradient fades */
+.view-testi .scroll-container::before,
+.view-testi .scroll-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.view-testi .scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background-bg), transparent);
+}
+
+.view-testi .scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background-bg), transparent);
+}
+
+.view-testi .marquee {
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: 2vw;
+}
+
+.view-testi .marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2vw;
+  padding-right: 2vw;
+}
+
+.view-testi .marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.view-testi .scroll-left {
+  animation: scrollLeft 45s linear infinite;
+}
+
+.view-testi .scroll-right {
+  animation: scrollRight 45s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.testi-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 320px;
+  transition: transform 0.3s ease;
+  padding: 3px; /* Match borderWidth in GlowingEffect */
+  border-radius: 1rem;
+}
+
+.testi-card-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: calc(1rem - 3px);
+  background-color: var(--background-bg);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.testi-card:hover {
+  transform: scale(1.02);
+}
+
+.testi-card .quote-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--foreground-text);
+  opacity: 0.5;
+}
+
+.testi-card p {
+  color: var(--foreground-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  font-family: sans-serif;
+  opacity: 0.8;
+}
+
+.testi-card .author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.testi-card .author img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  opacity: 0.8;
+}
+
+.testi-card .author .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-card .author .info .name {
+  color: var(--foreground-text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.testi-card .author .info .role {
+  color: var(--foreground-text);
+  font-size: 0.875rem;
+  opacity: 0.6;
+  font-family: sans-serif;
+}
+
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - 0.5rem));
+  }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
+
+.animate-marquee-vertical[data-reverse="true"] {
+  animation-direction: reverse;
+}
+
+
+@media (min-width: 1020px) {
+
+  .view-testi {
+    padding: 4vw 0;
+    gap: 2vw;
+  }
+  .view-testi .header {
+    margin-bottom: 2vw;
+  }
+  .view-testi .header h5 {
+    font-size: 1.2vw;
+    margin-bottom: 1vw;
+  }
+  .view-testi .header h2 {
+    font-size: 4.5vw;
+  }
+  .testi-card {
+    min-width: 400px;
+    max-width: 400px;
+  }
+
+}

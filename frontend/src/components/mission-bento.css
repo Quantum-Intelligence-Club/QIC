@@ -1,0 +1,293 @@
+/* ===== Mission Bento Card System ===== */
+
+/*
+  DESIGN LOGIC:
+  Both cards are fixed-height so objectBoundingBox SVG coords are predictable.
+  Dark card: 320px mobile / 420px desktop
+  Notch cut: bottom 80px on both (y = 1 - 80/320 = 0.75 mobile, 1 - 80/420 = 0.81 desktop)
+  Orange card: same fixed height, margin-top: -80px (slides into dark card's notch exactly)
+  The notch is on the RIGHT side of black card and LEFT side of orange card — alternating sides.
+*/
+
+/* ===== DARK CARD ===== */
+.mission-bento-card {
+  background-color: #111;
+  color: #fff;
+  padding: 4vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 320px;
+  box-sizing: border-box;
+  /*
+    Polygon clip: full card with rounded corners (32px) EXCEPT
+    bottom-right 80px is stepped in (the notch on the RIGHT side).
+    Corners use approximated bezier steps.
+  */
+  clip-path: polygon(
+    32px 0%, 
+    calc(100% - 32px) 0%, 
+    100% 32px, 
+    100% calc(100% - 80px - 32px), 
+    calc(100% - 32px) calc(100% - 80px),
+    calc(55% - 8px + 32px) calc(100% - 80px), 
+    calc(55% - 8px) calc(100% - 80px + 32px),
+    calc(55% - 8px) calc(100% - 32px), 
+    calc(55% - 8px - 32px) 100%,
+    32px 100%, 
+    0% calc(100% - 32px),
+    0% 32px
+  );
+}
+.mission-bento-card h5 {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 1px;
+}
+.mission-bento-card h1 {
+  color: #fff !important;
+  font-size: 6vw !important;
+  line-height: 7vw !important;
+  font-weight: 400 !important;
+}
+
+/* "Explore Projects" pill button — sits in the SVG cutout space */
+.mission-bento-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  border: none;
+  background-color: var(--background-bg) !important;
+  color: var(--foreground-text) !important;
+  text-transform: uppercase;
+  padding: 0.7rem 1.4rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px;
+  border-radius: 9999px !important;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4);
+  z-index: 20;
+  transition: transform 0.3s ease;
+}
+.mission-bento-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sub-boxes inside the dark card */
+.mission-supplement-boxes {
+  display: flex;
+  gap: 3vw;
+  width: 60%;
+  z-index: 10;
+}
+.mission-sub-box {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.mission-sub-box p {
+  color: rgba(255,255,255,0.7) !important;
+  font-size: 0.7rem !important;
+  line-height: 1.4 !important;
+  font-family: sans-serif;
+}
+.mission-sub-box span {
+  font-size: 0.7rem !important;
+}
+.mission-sub-box .stat-number {
+  font-size: 1.2rem !important;
+}
+.mission-sub-box.glass-box {
+  background: rgba(255, 255, 255, 0.03);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.mission-sub-box.gradient-box {
+  background: linear-gradient(135deg, rgba(229,107,79, 0.15) 0%, rgba(20,20,20, 0.8) 100%);
+  border: 1px solid rgba(229,107,79, 0.15);
+}
+
+/* ===== ORANGE CARD ===== */
+/*
+  The dark card's SVG notch cuts its bottom-right 80px.
+  This card has margin-top: -80px to slide up and fill that exact void.
+  Its SVG notch cuts the top-LEFT 80px — interlocking on the OPPOSITE side.
+*/
+.mission-accent-card {
+  background: linear-gradient(135deg, #e56b4f 0%, #d4553b 100%);
+  color: #fff;
+  padding: 95px 6vw 5vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  height: 390px;
+  box-sizing: border-box;
+  margin-top: -64px;
+  /*
+    Polygon clip: full card EXCEPT the top-LEFT 80px is stepped — OPPOSITE side.
+    Left side starts at y=80px (the notch area), left corner at top is indented.
+  */
+  clip-path: polygon(
+    0% calc(80px + 32px),
+    32px 80px,
+    calc(55% + 8px - 32px) 80px,
+    calc(55% + 8px) calc(80px - 32px),
+    calc(55% + 8px) 32px,
+    calc(55% + 8px + 32px) 0%,
+    calc(100% - 32px) 0%,
+    100% 32px,
+    100% calc(100% - 32px),
+    calc(100% - 32px) 100%,
+    32px 100%,
+    0% calc(100% - 32px)
+  );
+}
+.accent-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  z-index: 10;
+}
+.accent-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.accent-icon-row i {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+.accent-icon-row span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+}
+.mission-accent-card h3 {
+  font-size: 6vw;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+}
+.mission-accent-card p {
+  font-size: 3.5vw;
+  line-height: 1.6;
+  opacity: 0.85;
+  font-family: sans-serif;
+  color: #fff !important;
+  margin: 0;
+}
+.accent-card-btn {
+  align-self: flex-start;
+  padding: 0.55rem 1.3rem;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.3s ease;
+}
+.accent-card-btn:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1020px) {
+  .mission-bento-card {
+    padding: 2.5vw;
+    height: 420px;
+    clip-path: polygon(
+      32px 0%, 
+      calc(100% - 32px) 0%, 
+      100% 32px, 
+      100% calc(100% - 80px - 32px), 
+      calc(100% - 32px) calc(100% - 80px),
+      calc(55% - 4px + 32px) calc(100% - 80px), 
+      calc(55% - 4px) calc(100% - 80px + 32px),
+      calc(55% - 4px) calc(100% - 32px), 
+      calc(55% - 4px - 32px) 100%,
+      32px 100%, 
+      0% calc(100% - 32px),
+      0% 32px
+    );
+  }
+  .mission-bento-card h1 {
+    font-size: 3vw !important;
+    line-height: 3.6vw !important;
+  }
+  .mission-bento-card h5 {
+    font-size: 0.7rem !important;
+  }
+  .mission-supplement-boxes {
+    gap: 1vw;
+    width: 60%;
+  }
+  .mission-sub-box {
+    padding: 0.7rem 0.9rem;
+  }
+  .mission-sub-box span {
+    font-size: 0.6rem !important;
+  }
+  .mission-sub-box .stat-number {
+    font-size: 1.1rem !important;
+  }
+  .mission-sub-box p {
+    font-size: 0.65rem !important;
+  }
+  .mission-bento-btn {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 0.8rem !important;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .mission-accent-card {
+    padding: 2.5vw;
+    height: 420px;
+    margin-top: -64px;
+    gap: 1rem;
+    clip-path: polygon(
+      0% calc(80px + 32px),
+      32px 80px,
+      calc(55% + 4px - 32px) 80px,
+      calc(55% + 4px) calc(80px - 32px),
+      calc(55% + 4px) 32px,
+      calc(55% + 4px + 32px) 0%,
+      calc(100% - 32px) 0%,
+      100% 32px,
+      100% calc(100% - 32px),
+      calc(100% - 32px) 100%,
+      32px 100%,
+      0% calc(100% - 32px)
+    );
+  }
+  .mission-accent-card h3 {
+    font-size: 2.5vw;
+  }
+  .mission-accent-card p {
+    font-size: 1.1vw;
+    line-height: 1.6;
+  }
+  .accent-icon-row i {
+    font-size: 1.1rem;
+  }
+  .accent-icon-row span {
+    font-size: 0.6rem;
+  }
+  .accent-card-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+  }
+}

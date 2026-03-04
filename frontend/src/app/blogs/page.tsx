@@ -1,0 +1,31 @@
+import { Navbar } from "@/components/Navbar/Navbar";
+import { Footer } from "@/components/Footer/Footer";
+import { BlogHeader } from '@/components/Blog/BlogLayout';
+import BlogHero from '@/components/Blog/BlogHero';
+import PodcastSection from '@/components/Blog/PodcastSection';
+import SpotlightSection from '@/components/Blog/SpotlightSection';
+import { NewsletterSection, MomentsSection } from '@/components/Blog/BlogSections';
+import './blog.css';
+
+
+export default function BlogPage() {
+  return (
+    <main className="blog-main">
+      <section className="view-1">
+        <Navbar />
+        <div className="line"></div>
+      </section>
+      
+      <div className="blog-content">
+        <BlogHeader />
+        <BlogHero />
+        <PodcastSection />
+        <SpotlightSection />
+        <NewsletterSection />
+        <MomentsSection />
+      </div>
+
+      <Footer />
+    </main>
+  );
+}
