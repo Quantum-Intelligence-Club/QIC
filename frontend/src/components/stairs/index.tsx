@@ -4,9 +4,10 @@ import { opacity } from './anim';
 
 interface StairsProps {
   children: React.ReactNode;
+  backgroundColor?: string;
 }
 
-export default function Stairs({ children }: StairsProps) {
+export default function Stairs({ children, backgroundColor }: StairsProps) {
   const nbOfColumns = 5;
 
   const createExpandVariant = (i: number): Variants => ({
@@ -26,6 +27,8 @@ export default function Stairs({ children }: StairsProps) {
     }
   });
 
+  const bg = backgroundColor || 'black';
+
   return (
     <div className="stairs-container">
       <motion.div 
@@ -33,7 +36,7 @@ export default function Stairs({ children }: StairsProps) {
         animate="enter"
         variants={opacity}
         className="transition-background"
-        style={{ position: 'fixed', width: '100%', height: '100vh', backgroundColor: 'black', zIndex: 9999, pointerEvents: 'none', top: 0, left: 0 }}
+        style={{ position: 'fixed', width: '100%', height: '100vh', backgroundColor: bg, zIndex: 9999, pointerEvents: 'none', top: 0, left: 0 }}
       />
       <div className="transition-container" style={{ position: 'fixed', width: '100vw', height: '100vh', display: 'flex', left: 0, top: 0, pointerEvents: 'none', zIndex: 9999 }}>
         {
@@ -44,7 +47,7 @@ export default function Stairs({ children }: StairsProps) {
                 initial="initial"
                 animate="enter"
                 variants={createExpandVariant(i)}
-                style={{ position: 'relative', height: '100%', width: '100%', backgroundColor: 'black', zIndex: 9999 }}
+                style={{ position: 'relative', height: '100%', width: '100%', backgroundColor: bg, zIndex: 9999 }}
               />
             );
           })
