@@ -42,7 +42,6 @@ export function Values() {
              </div>
           </div>
 
-          <button className="mission-bento-btn">explore projects</button>
         </div>
 
         {/* Orange Accent Card — interlocks below the dark card */}
