@@ -15,12 +15,18 @@
   height: 400px;
   background-position: center;
   background-repeat: no-repeat;
+  mix-blend-mode: multiply;
 }
 
 .wrapper h1 {
   font-size: 80px;
   text-align: center;
   margin: 0;
+}
+
+:global([data-theme="dark"]) .wrapper {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
 }
 
 .msg {
