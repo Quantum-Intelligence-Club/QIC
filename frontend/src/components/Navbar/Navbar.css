@@ -59,8 +59,9 @@ nav .right .part-2 #toggle i {
   font-size: 7vw;
   color: var(--foreground-text);
 }
-nav .right .part-2 i.ri-menu-fill {
-  font-size: 8.5vw;
+nav .right .part-2 i.ri-menu-fill,
+nav .right .part-2 .custom-menu-trigger {
+  display: block;
 }
 
 @media (min-width: 1020px) {
@@ -139,7 +140,8 @@ nav .right .part-2 i.ri-menu-fill {
     font-size: 1.4vw;
     line-height: 1;
   }
-  .view-1 nav .right .part-2 i.ri-menu-fill {
+  .view-1 nav .right .part-2 i.ri-menu-fill,
+  .view-1 nav .right .part-2 .custom-menu-trigger {
     display: none;
   }
 

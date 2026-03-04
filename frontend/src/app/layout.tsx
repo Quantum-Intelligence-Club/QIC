@@ -57,7 +57,11 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <SmoothScroll>{children}</SmoothScroll>
+          <StairsProvider>
+            <StairsWrapper>
+              <SmoothScroll>{children}</SmoothScroll>
+            </StairsWrapper>
+          </StairsProvider>
         </ThemeProvider>
       </body>
 

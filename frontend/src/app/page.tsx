@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar/Navbar";
+import Navbar2 from "@/components/Navbar/Navbar2";
 import { Hero } from "@/components/Hero/Hero";
 import { Values } from "@/components/Values/Values";
 import { Team } from "@/components/Team/Team";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       <section className="view-1">
-        <Navbar />
+        <Navbar2 />
         <div className="line"></div>
         <Hero />
       </section>

@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar/Navbar";
+import Navbar2 from "@/components/Navbar/Navbar2";
 import { Footer } from "@/components/Footer/Footer";
 import { BlogHeader } from '@/components/Blog/BlogLayout';
 import BlogHero from '@/components/Blog/BlogHero';
@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <main className="blog-main">
       <section className="view-1">
-        <Navbar />
+        <Navbar2 />
         <div className="line"></div>
       </section>
       

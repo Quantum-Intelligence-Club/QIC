@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Navbar } from "@/components/Navbar/Navbar";
+import Navbar2 from "@/components/Navbar/Navbar2";
 import { EventsHero } from "@/components/Events/EventsHero";
 import { FeaturedEvents } from "@/components/Events/FeaturedEvents";
 import { EventSplash } from "@/components/Events/EventSplash";
@@ -20,7 +20,7 @@ export default function EventsPage() {
   return (
     <main className="events-page-root">
       <section className="view-1">
-        <Navbar />
+        <Navbar2 />
         <div className="line"></div>
       </section>
       <EventSplash />
