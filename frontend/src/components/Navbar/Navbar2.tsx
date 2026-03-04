@@ -17,7 +17,7 @@ const Navbar2: React.FC = () => {
 
   // Refs for GSAP animations
   const navRef = useRef<HTMLDivElement>(null);
-  const linksRef = useRef<HTMLDivElement[]>([]);
+  const linksRef = useRef<HTMLAnchorElement[]>([]);
   const contactRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
   const burgerRef = useRef<HTMLButtonElement>(null);
@@ -175,12 +175,14 @@ const Navbar2: React.FC = () => {
       {/* Mobile Menu Sidebar */}
       <div
         ref={navRef}
-        className="fixed top-0 right-0 z-[50] flex flex-col w-full h-screen pl-14 pr-10 sm:pl-20 sm:pr-12 uppercase pt-20 pb-14 shadow-2xl md:hidden"
+        className="fixed top-0 right-0 z-[50] flex flex-col w-full h-screen uppercase pt-20 pb-14 shadow-2xl md:hidden"
         style={{ 
           pointerEvents: isOpen ? 'all' : 'none', 
           display: 'none',
           backgroundColor: 'var(--background-bg)',
           color: 'var(--foreground-text)',
+          paddingLeft: '1.5rem',
+          paddingRight: '1.5rem',
         }}
       >
         {/* Close Button */}
