@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 
 import { StairsProvider } from "@/components/stairs/StairsContext";
 import StairsWrapper from "@/components/stairs/StairsWrapper";
+import MusicBox from "@/components/MusicBox";
+import { Suspense } from "react";
 
 export default function RootLayout({
   children,
@@ -58,9 +60,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StairsProvider>
-            <StairsWrapper>
-              <SmoothScroll>{children}</SmoothScroll>
-            </StairsWrapper>
+            <Suspense fallback={null}>
+              <StairsWrapper>
+                <MusicBox showMusicBurger={true} />
+                <SmoothScroll>{children}</SmoothScroll>
+              </StairsWrapper>
+            </Suspense>
           </StairsProvider>
         </ThemeProvider>
       </body>

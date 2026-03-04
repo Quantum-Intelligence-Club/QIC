@@ -7,7 +7,10 @@ export function Hero() {
       <div className="top">
         <h5>Empowering the future of Quantum & AI</h5>
         <div className="hero-title">
-          <MorphingText texts={["Quantum Intelligence Club", "VIT Bhopal University"]} />
+          <h1 className="mobile-title">Quantum Intelligence Club</h1>
+          <div className="desktop-title">
+            <MorphingText texts={["Quantum Intelligence Club", "VIT Bhopal University"]} />
+          </div>
         </div>
       </div>
       <div className="bottom">

@@ -121,4 +121,8 @@ main {
   background-color: #fdfbf5;
 }
 
-
+@keyframes soundWave {
+  0% { height: 20%; opacity: 0.6; }
+  50% { height: 100%; opacity: 1; }
+  100% { height: 20%; opacity: 0.6; }
+}
