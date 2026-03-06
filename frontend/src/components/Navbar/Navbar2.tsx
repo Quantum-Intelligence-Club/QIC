@@ -103,7 +103,7 @@ const Navbar2: React.FC = () => {
     { name: "events", href: "/events" },
     { name: "blogs", href: "/blogs" },
     { name: "team", href: "/#team" },
-    { name: "gallery", href: "/#gallery" },
+    { name: "gallery", href: "/gallery" },
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {

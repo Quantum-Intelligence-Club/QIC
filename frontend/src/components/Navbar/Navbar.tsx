@@ -17,7 +17,7 @@ export function Navbar() {
           <Link href="/events"><h4 className="hovering-elements">events</h4></Link>
           <Link href="/blogs"><h4 className="hovering-elements">blogs</h4></Link>
           <Link href="/#team"><h4 className="hovering-elements">team</h4></Link>
-          <Link href="/#gallery"><h4 className="hovering-elements">gallery</h4></Link>
+          <Link href="/gallery"><h4 className="hovering-elements">gallery</h4></Link>
         </div>
         <div className="part-2">
           <button>join us</button>
