@@ -111,12 +111,12 @@ export const GalleryBento = () => {
                         {event.title.replace(/<[^>]*>/g, '')}
                       </h2>
                       
-                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg mt-6 max-w-xl leading-relaxed font-medium">
+                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg mt-6 mb-8 max-w-xl leading-relaxed font-medium">
                         {event.description}
                       </p>
                       
                       {/* View Button */}
-                      <button className="gsap-button mt-12 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
+                      <button className="gsap-button mt-4 md:mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
                         <span 
                           className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] py-4 whitespace-nowrap block"
                           style={{ paddingLeft: '32px', paddingRight: '16px' }}
