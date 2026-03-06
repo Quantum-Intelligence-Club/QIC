@@ -77,7 +77,7 @@ export const GalleryBento = () => {
     <section ref={containerRef} className="relative w-full h-screen bg-[#fcfbf8] overflow-hidden select-none">
       
       {/* Header Overlay (matches reference but light theme) */}
-      <header className="absolute top-0 left-0 w-full flex items-center justify-between px-[5%] h-24 sm:h-28 z-50 text-neutral-900 font-mono text-[10px] sm:text-xs tracking-[0.5em] bg-white/10 backdrop-blur-md pointer-events-none uppercase border-b border-black/5">
+      <header className="hidden md:flex absolute top-0 left-0 w-full items-center justify-between px-[5%] h-24 sm:h-28 z-50 text-neutral-900 font-mono text-[10px] sm:text-xs tracking-[0.5em] bg-white/10 backdrop-blur-md pointer-events-none uppercase border-b border-black/5">
         <div>Quantum Intelligence Club</div>
         <div className="text-[#84cc16] font-bold">Past Explorations</div>
       </header>
