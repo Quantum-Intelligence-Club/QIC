@@ -140,12 +140,16 @@ export default function TeamCarousel({ members, onSelect }: TeamCarouselProps) {
              <div className="flex gap-4">
                  <button 
                     onClick={handlePrev}
+                    aria-label="Previous member"
+                    title="Previous member"
                     className="w-16 h-10 border border-gray-400 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                  >
                      <ArrowLeft className="w-5 h-5" />
                  </button>
                  <button 
                     onClick={handleNext}
+                    aria-label="Next member"
+                    title="Next member"
                     className="w-16 h-10 border border-gray-400 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                  >
                      <ArrowRight className="w-5 h-5" />
