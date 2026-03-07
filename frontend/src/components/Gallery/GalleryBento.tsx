@@ -91,50 +91,50 @@ export const GalleryBento = () => {
         {pastEvents.map((event, i) => (
           <div 
             key={event.id} 
-            className="gsap-section relative md:absolute md:inset-0 w-full md:h-full pointer-events-none"
+            className="gsap-section relative md:absolute md:inset-0 !w-full md:h-full pointer-events-none"
             style={{ zIndex: i }}
           >
-            <div className="gsap-outer w-full md:h-full md:overflow-hidden pointer-events-auto">
-              <div className="gsap-inner w-full md:h-full md:overflow-hidden">
+            <div className="gsap-outer !w-full md:h-full md:overflow-hidden pointer-events-auto">
+              <div className="gsap-inner !w-full md:h-full md:overflow-hidden">
                 <div 
-                  className="gsap-bg flex items-center justify-center relative md:absolute md:inset-0 w-full md:h-full !pt-[140px] !pb-16 md:!py-0"
+                  className="gsap-bg flex flex-col md:flex-row items-center justify-center relative md:absolute md:inset-0 !w-full md:h-full !pt-20 !pb-12 md:!py-0"
                   style={{ backgroundColor: sectionColors[i % sectionColors.length] }}
                 >
-                  <div className="gsap-content w-[90vw] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 lg:gap-24 px-4 md:h-full md:pt-16">
+                  <div className="gsap-content !w-full md:!w-[90vw] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-24 px-6 md:px-4 md:h-full md:pt-16">
                     
                     {/* Left: Text Content */}
-                    <div className="flex-1 text-left flex flex-col items-start w-full order-2 md:order-1 mt-6 md:mt-0">
-                      <div className="text-[#84cc16] font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mb-4">
+                    <div className="flex-1 text-left flex flex-col items-start w-full order-1 mt-4 md:mt-0">
+                      <div className="text-[#84cc16] font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 md:mb-4">
                         {event.category}
                       </div>
                       
                       <h2 
-                        className="gsap-heading text-neutral-950 text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] leading-[1.05] font-serif font-medium tracking-tight text-balance drop-shadow-sm"
+                        className="gsap-heading text-neutral-950 text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] leading-[1.05] font-serif font-medium tracking-tight text-balance drop-shadow-sm"
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.03)' }}
                       >
                         {event.title.replace(/<[^>]*>/g, '')}
                       </h2>
                       
-                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg !mt-6 !mb-8 md:!mb-10 max-w-xl leading-relaxed font-medium">
+                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg !mt-3 !mb-6 md:!mt-6 md:!mb-10 max-w-xl leading-relaxed font-medium">
                         {event.description}
                       </p>
                       
                       {/* View Button */}
-                      <button className="gsap-button !mt-8 md:!mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
+                      <button className="gsap-button !mt-2 md:!mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
                         <span 
-                          className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] !py-4 whitespace-nowrap block"
-                          style={{ paddingLeft: '32px', paddingRight: '16px' }}
+                          className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] py-3 md:py-4 whitespace-nowrap block"
+                          style={{ paddingLeft: '24px', paddingRight: '12px' }}
                         >
                           Event details
                         </span>
-                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-2 shrink-0 group-hover:bg-[#84cc16] transition-colors duration-300">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center mr-2 shrink-0 group-hover:bg-[#84cc16] transition-colors duration-300">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                         </div>
                       </button>
                     </div>
 
                     {/* Right: Featured Image with Custom SVG Container */}
-                    <div className="flex-1 w-full relative !p-4 flex items-center justify-center order-1 md:order-2">
+                    <div className="flex-1 w-full relative !p-2 md:!p-4 flex items-center justify-center order-2 !mt-10 md:!mt-0">
                       <div className="relative w-full max-w-[500px] aspect-square mx-auto">
                         <svg
                           width="100%"
