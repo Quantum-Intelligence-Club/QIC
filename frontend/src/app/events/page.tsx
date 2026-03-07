@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   return (
-    <main className="events-page-root">
-      <section className="view-1">
+    <main className="page-standard events-page-root">
+      <section className="nav-section">
         <Navbar2 />
         <div className="line"></div>
       </section>
       <EventSplash />
-       <section className="view-1">
+       <section className="nav-section">
         <div className="line"></div>
         <EventsHero />
       </section>

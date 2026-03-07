@@ -107,6 +107,11 @@ const Navbar2: React.FC = () => {
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    if (href === '/team' || href === '/gallery') {
+      e.preventDefault();
+      window.location.href = href;
+      return;
+    }
     if (href.startsWith('/#') || href === '/') {
       e.preventDefault();
       if (href === '/' || href === '/#home') {

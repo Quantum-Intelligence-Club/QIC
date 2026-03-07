@@ -10,8 +10,8 @@ import './blog.css';
 
 export default function BlogPage() {
   return (
-    <main className="blog-main">
-      <section className="view-1">
+    <main className="page-standard blog-main">
+      <section className="nav-section">
         <Navbar2 />
         <div className="line"></div>
       </section>

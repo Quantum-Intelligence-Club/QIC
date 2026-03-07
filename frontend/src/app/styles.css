@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -54,7 +55,7 @@ body {
   width: 100%;
 }
 
-.view-1 .line {
+.nav-section .line {
   width: 100%;
   height: 1px;
   background-color: var(--border-color);
@@ -62,7 +63,7 @@ body {
 }
 
 @media (min-width: 1020px) {
-  .view-1 .line {
+  .nav-section .line {
     margin: 2vw 0;
   }
 }
@@ -78,11 +79,8 @@ body {
 
 main {
   width: 100%;
-  padding: 5vw 6vw;
-  border: 1px solid var(--border-color);
   background-color: var(--background-bg);
 }
-
 
 .hovering-elements {
   position: relative;
@@ -138,4 +136,33 @@ main {
   0% { height: 20%; opacity: 0.6; }
   50% { height: 100%; opacity: 1; }
   100% { height: 20%; opacity: 0.6; }
+}
+
+/* Custom Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Standardized Page Layout */
+main.page-standard {
+  width: 100%;
+  padding: 5vw 6vw;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-bg);
+}
+
+@media (min-width: 1020px) {
+  main.page-standard {
+    padding: 2.4vw 3.3vw;
+  }
+}
+
+/* Fullscreen pages should NOT have global padding/borders */
+main.page-fullscreen {
+  width: 100%;
+  height: 100%;
 }

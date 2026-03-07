@@ -73,6 +73,14 @@ export const GalleryBento = () => {
           .to(button, { autoAlpha: 1, yPercent: 0, duration: 1, ease: "power2.out" }, "<")
           .to(prevContent, { scale: 0.95, opacity: 0, filter: "blur(10px)", yPercent: -20, duration: 1, ease: "none" }, "<");
       });
+
+      // Crucial: Refresh ScrollTrigger after navigation
+      // Using a delay longer than the StairsWrapper transition (600ms)
+      const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 800);
+
+      return () => clearTimeout(refreshTimeout);
     });
 
   }, { scope: containerRef });

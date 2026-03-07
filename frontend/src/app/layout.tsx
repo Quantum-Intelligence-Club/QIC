@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import "./globals.css";
+import "./styles.css";
 
 export const metadata: Metadata = {
   title: "QIC - Quantum Intelligence Club",

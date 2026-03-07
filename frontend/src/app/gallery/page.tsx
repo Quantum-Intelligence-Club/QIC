@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <main className="gallery-page-root">
-      <section className="view-1">
+    <main className="page-fullscreen gallery-page-root">
+      <section className="nav-section">
         <Navbar2 />
         <div className="line"></div>
       </section>

@@ -12,8 +12,8 @@ export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
-    <main className="min-h-screen w-full bg-[#f4f1ea] text-[#1a1a1a] overflow-hidden font-sans">
-      <section className="view-1">
+    <main className="page-standard min-h-screen w-full text-[#1a1a1a] overflow-hidden font-sans">
+      <section className="nav-section">
         <Navbar2 />
         <div className="line"></div>
       </section>

@@ -9,10 +9,12 @@ import { AnimatedBeamDemo } from "@/components/AnimatedBeamDemo/AnimatedBeamDemo
 
 export default function Home() {
   return (
-    <main>
-      <section className="view-1">
+    <main className="page-standard">
+      <section className="nav-section">
         <Navbar2 />
         <div className="line"></div>
+      </section>
+      <section className="hero-view">
         <Hero />
       </section>
 
