@@ -97,13 +97,13 @@ export const GalleryBento = () => {
             <div className="gsap-outer w-full md:h-full md:overflow-hidden pointer-events-auto">
               <div className="gsap-inner w-full md:h-full md:overflow-hidden">
                 <div 
-                  className="gsap-bg flex items-center justify-center relative md:absolute md:inset-0 w-full md:h-full py-20 md:py-0"
+                  className="gsap-bg flex items-center justify-center relative md:absolute md:inset-0 w-full md:h-full !pt-[140px] !pb-16 md:!py-0"
                   style={{ backgroundColor: sectionColors[i % sectionColors.length] }}
                 >
                   <div className="gsap-content w-[90vw] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 lg:gap-24 px-4 md:h-full md:pt-16">
                     
                     {/* Left: Text Content */}
-                    <div className="flex-1 text-left flex flex-col items-start w-full">
+                    <div className="flex-1 text-left flex flex-col items-start w-full order-2 md:order-1 mt-6 md:mt-0">
                       <div className="text-[#84cc16] font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mb-4">
                         {event.category}
                       </div>
@@ -115,14 +115,14 @@ export const GalleryBento = () => {
                         {event.title.replace(/<[^>]*>/g, '')}
                       </h2>
                       
-                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg mt-6 mb-8 max-w-xl leading-relaxed font-medium">
+                      <p className="gsap-heading text-neutral-700 font-sans text-sm md:text-base lg:text-lg !mt-6 !mb-8 md:!mb-10 max-w-xl leading-relaxed font-medium">
                         {event.description}
                       </p>
                       
                       {/* View Button */}
-                      <button className="gsap-button mt-2 md:mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
+                      <button className="gsap-button !mt-8 md:!mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
                         <span 
-                          className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] py-4 whitespace-nowrap block"
+                          className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] !py-4 whitespace-nowrap block"
                           style={{ paddingLeft: '32px', paddingRight: '16px' }}
                         >
                           Event details
@@ -134,7 +134,7 @@ export const GalleryBento = () => {
                     </div>
 
                     {/* Right: Featured Image with Custom SVG Container */}
-                    <div className="flex-1 w-full relative mt-12 md:mt-0 p-4 flex items-center justify-center">
+                    <div className="flex-1 w-full relative !p-4 flex items-center justify-center order-1 md:order-2">
                       <div className="relative w-full max-w-[500px] aspect-square mx-auto">
                         <svg
                           width="100%"
