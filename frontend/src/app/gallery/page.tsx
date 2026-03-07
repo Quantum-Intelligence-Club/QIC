@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Navbar2 from "@/components/Navbar/Navbar2";
-import { GalleryBento } from "@/components/Gallery/GalleryBento";
+import GalleryBentoClient from "@/components/Gallery/GalleryBentoClient";
 import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function GalleryPage() {
         <div className="line"></div>
       </section>
       
-      <GalleryBento />
+      <GalleryBentoClient />
 
       <Footer />
     </main>

@@ -9,22 +9,49 @@ import { VolumeX } from "lucide-react";
  */
 const MusicBox = ({ showMusicBurger = true }: { showMusicBurger?: boolean }) => {
   const backgroundMusicRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (backgroundMusicRef.current) {
-      backgroundMusicRef.current.volume = 0.5; 
-      backgroundMusicRef.current.play().catch(e => console.log("Autoplay blocked:", e));
-    }
+    const music = backgroundMusicRef.current;
+    if (!music) return;
+
+    music.volume = 0.5;
+
+    const startAudio = () => {
+      music.play()
+        .then(() => {
+          setIsPlaying(true);
+          // Remove listeners once playing starts
+          window.removeEventListener("click", startAudio);
+          window.removeEventListener("touchstart", startAudio);
+        })
+        .catch(e => {
+          console.log("Play failed:", e);
+        });
+    };
+
+    // Try to play immediately (might be blocked)
+    startAudio();
+
+    // Add listeners for interaction to trigger play if blocked
+    window.addEventListener("click", startAudio);
+    window.addEventListener("touchstart", startAudio);
+
+    return () => {
+      window.removeEventListener("click", startAudio);
+      window.removeEventListener("touchstart", startAudio);
+    };
   }, []);
 
   const toggleMusic = () => {
     if (isPlaying) {
       backgroundMusicRef.current?.pause();
+      setIsPlaying(false);
     } else {
-      backgroundMusicRef.current?.play().catch(e => console.log("Play blocked:", e));
+      backgroundMusicRef.current?.play()
+        .then(() => setIsPlaying(true))
+        .catch(e => console.log("Play blocked:", e));
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (

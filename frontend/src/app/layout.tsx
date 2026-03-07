@@ -61,8 +61,8 @@ export default function RootLayout({
         >
           <StairsProvider>
             <Suspense fallback={null}>
+              <MusicBox showMusicBurger={true} />
               <StairsWrapper>
-                <MusicBox showMusicBurger={true} />
                 <SmoothScroll>{children}</SmoothScroll>
               </StairsWrapper>
             </Suspense>

@@ -111,7 +111,7 @@ const Navbar2: React.FC = () => {
       e.preventDefault();
       if (href === '/' || href === '/#home') {
         if (window.location.pathname !== '/') {
-          window.location.href = '/';
+          router.push('/');
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
