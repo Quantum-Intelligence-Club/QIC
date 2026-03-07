@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import TeamCarousel from "../../components/team/TeamCarousel";
-import TeamMemberDetail from "../../components/team/TeamMemberDetail";
-import { TeamMember, teamMembers } from "../../components/team/data";
+import TeamCarousel from "../../components/Team/TeamCarousel";
+import TeamMemberDetail from "../../components/Team/TeamMemberDetail";
+import { TeamMember, teamMembers } from "../../components/Team/data";
 import Navbar2 from "@/components/Navbar/Navbar2";
 import { Footer } from "@/components/Footer/Footer";
 
