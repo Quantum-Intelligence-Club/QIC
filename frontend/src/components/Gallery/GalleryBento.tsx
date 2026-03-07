@@ -22,59 +22,63 @@ export const GalleryBento = () => {
   const sectionsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Array of all our section wrapper DOM elements
-    const sections = gsap.utils.toArray<HTMLElement>(".gsap-section");
-    if (sections.length < 2) return;
+    let mm = gsap.matchMedia();
 
-    // Set initial states: sections stack natively from 0 upwards.
-    // So the latest section is physically placed ON TOP.
-    // The first section starts visible at 0, 0
-    // The rest start hidden below.
-    
-    // For all sections EXCEPT the first one, initialize them to be "off screen" and masked
-    const otherSections = sections.slice(1);
-    const inners = otherSections.map(s => s.querySelector(".gsap-inner"));
-    const outers = otherSections.map(s => s.querySelector(".gsap-outer"));
-    const bgs = otherSections.map(s => s.querySelector(".gsap-bg"));
+    mm.add("(min-width: 768px)", () => {
+      // Array of all our section wrapper DOM elements
+      const sections = gsap.utils.toArray<HTMLElement>(".gsap-section");
+      if (sections.length < 2) return;
 
-    gsap.set(outers, { yPercent: 100 });
-    gsap.set(inners, { yPercent: -100 });
-    gsap.set(bgs, { yPercent: 15 });
-    
-    // Hide all text and buttons in the hidden sections initially
-    otherSections.forEach(s => {
-      gsap.set(s.querySelectorAll(".gsap-heading, .gsap-button"), { autoAlpha: 0, yPercent: 50 });
-    });
-
-    // The entire pinning process
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: `+=${sections.length * 100}%`, // Scroll length depends on number of sections
-        scrub: 1, // Smooth scrubbing
-        pin: true, // Pin the container while animating through sections
-      }
-    });
-
-    // Sequence the sections appearing one by one
-    otherSections.forEach((section, i) => {
-      const headings = section.querySelectorAll(".gsap-heading");
-      const button = section.querySelector(".gsap-button");
-      const prevContent = sections[i].querySelector(".gsap-content");
+      // Set initial states: sections stack natively from 0 upwards.
+      // So the latest section is physically placed ON TOP.
+      // The first section starts visible at 0, 0
+      // The rest start hidden below.
       
-      tl.to(outers[i], { yPercent: 0, duration: 1, ease: "none" })
-        .to(inners[i], { yPercent: 0, duration: 1, ease: "none" }, "<")
-        .to(bgs[i], { yPercent: 0, duration: 1, ease: "none" }, "<")
-        .to(headings, { autoAlpha: 1, yPercent: 0, duration: 1, stagger: 0, ease: "power2.out" }, "<")
-        .to(button, { autoAlpha: 1, yPercent: 0, duration: 1, ease: "power2.out" }, "<")
-        .to(prevContent, { scale: 0.95, opacity: 0, filter: "blur(10px)", yPercent: -20, duration: 1, ease: "none" }, "<");
+      // For all sections EXCEPT the first one, initialize them to be "off screen" and masked
+      const otherSections = sections.slice(1);
+      const inners = otherSections.map(s => s.querySelector(".gsap-inner"));
+      const outers = otherSections.map(s => s.querySelector(".gsap-outer"));
+      const bgs = otherSections.map(s => s.querySelector(".gsap-bg"));
+
+      gsap.set(outers, { yPercent: 100 });
+      gsap.set(inners, { yPercent: -100 });
+      gsap.set(bgs, { yPercent: 15 });
+      
+      // Hide all text and buttons in the hidden sections initially
+      otherSections.forEach(s => {
+        gsap.set(s.querySelectorAll(".gsap-heading, .gsap-button"), { autoAlpha: 0, yPercent: 50 });
+      });
+
+      // The entire pinning process
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: `+=${sections.length * 100}%`, // Scroll length depends on number of sections
+          scrub: 1, // Smooth scrubbing
+          pin: true, // Pin the container while animating through sections
+        }
+      });
+
+      // Sequence the sections appearing one by one
+      otherSections.forEach((section, i) => {
+        const headings = section.querySelectorAll(".gsap-heading");
+        const button = section.querySelector(".gsap-button");
+        const prevContent = sections[i].querySelector(".gsap-content");
+        
+        tl.to(outers[i], { yPercent: 0, duration: 1, ease: "none" })
+          .to(inners[i], { yPercent: 0, duration: 1, ease: "none" }, "<")
+          .to(bgs[i], { yPercent: 0, duration: 1, ease: "none" }, "<")
+          .to(headings, { autoAlpha: 1, yPercent: 0, duration: 1, stagger: 0, ease: "power2.out" }, "<")
+          .to(button, { autoAlpha: 1, yPercent: 0, duration: 1, ease: "power2.out" }, "<")
+          .to(prevContent, { scale: 0.95, opacity: 0, filter: "blur(10px)", yPercent: -20, duration: 1, ease: "none" }, "<");
+      });
     });
 
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen bg-[#fcfbf8] overflow-hidden select-none">
+    <section ref={containerRef} className="relative w-full md:h-screen bg-[#fcfbf8] md:overflow-hidden select-none">
       
       {/* Header Overlay (matches reference but light theme) */}
       <header className="hidden md:flex absolute top-0 left-0 w-full items-center justify-between px-[5%] h-24 sm:h-28 z-50 text-neutral-900 font-mono text-[10px] sm:text-xs tracking-[0.5em] bg-white/10 backdrop-blur-md pointer-events-none uppercase border-b border-black/5">
@@ -83,23 +87,23 @@ export const GalleryBento = () => {
       </header>
 
       {/* Sections Container */}
-      <div ref={sectionsRef} className="w-full h-full relative">
+      <div ref={sectionsRef} className="w-full md:h-full relative flex flex-col md:block">
         {pastEvents.map((event, i) => (
           <div 
             key={event.id} 
-            className="gsap-section absolute inset-0 w-full h-full pointer-events-none"
+            className="gsap-section relative md:absolute md:inset-0 w-full md:h-full pointer-events-none"
             style={{ zIndex: i }}
           >
-            <div className="gsap-outer w-full h-full overflow-hidden pointer-events-auto">
-              <div className="gsap-inner w-full h-full overflow-hidden">
+            <div className="gsap-outer w-full md:h-full md:overflow-hidden pointer-events-auto">
+              <div className="gsap-inner w-full md:h-full md:overflow-hidden">
                 <div 
-                  className="gsap-bg flex items-center justify-center absolute inset-0 w-full h-full"
+                  className="gsap-bg flex items-center justify-center relative md:absolute md:inset-0 w-full md:h-full py-20 md:py-0"
                   style={{ backgroundColor: sectionColors[i % sectionColors.length] }}
                 >
-                  <div className="gsap-content w-[90vw] max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-24 px-4 pt-16">
+                  <div className="gsap-content w-[90vw] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 lg:gap-24 px-4 md:h-full md:pt-16">
                     
                     {/* Left: Text Content */}
-                    <div className="flex-1 text-left order-2 md:order-1 flex flex-col items-start">
+                    <div className="flex-1 text-left flex flex-col items-start w-full">
                       <div className="text-[#84cc16] font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mb-4">
                         {event.category}
                       </div>
@@ -116,7 +120,7 @@ export const GalleryBento = () => {
                       </p>
                       
                       {/* View Button */}
-                      <button className="gsap-button mt-4 md:mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
+                      <button className="gsap-button mt-2 md:mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
                         <span 
                           className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] py-4 whitespace-nowrap block"
                           style={{ paddingLeft: '32px', paddingRight: '16px' }}
@@ -130,7 +134,7 @@ export const GalleryBento = () => {
                     </div>
 
                     {/* Right: Featured Image with Custom SVG Container */}
-                    <div className="flex-1 w-full order-1 md:order-2 relative mt-8 md:mt-0 p-4 flex items-center justify-center">
+                    <div className="flex-1 w-full relative mt-12 md:mt-0 p-4 flex items-center justify-center">
                       <div className="relative w-full max-w-[500px] aspect-square mx-auto">
                         <svg
                           width="100%"
