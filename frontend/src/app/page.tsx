@@ -1,7 +1,6 @@
 import Navbar2 from "@/components/Navbar/Navbar2";
 import { Hero } from "@/components/Hero/Hero";
 import { Values } from "@/components/Values/Values";
-import { Team } from "@/components/Team/Team";
 import { Contact } from "@/components/Contact/Contact";
 import { Footer } from "@/components/Footer/Footer";
 import { GoogleGeminiEffectDemo } from "@/components/Google-Gemini/google-gemini-effect-demo";
@@ -20,7 +19,6 @@ export default function Home() {
       <AnimatedBeamDemo />
       <Values />
       <Testimonials />
-      <Team />
       <Contact />
       {/* <GoogleGeminiEffectDemo /> */}
       <Footer />

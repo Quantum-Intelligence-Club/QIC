@@ -66,35 +66,35 @@ nav .right .part-2 .custom-menu-trigger {
 
 @media (min-width: 1020px) {
 
-  .view-1 nav .logos {
+  nav .logos {
     gap: 0.5vw;
   }
-  .view-1 nav .logos svg,
-  .view-1 nav .logos img {
+  nav .logos svg,
+  nav .logos img {
     height: 3.5vw;
   }
-  .view-1 nav .logos #logo-text {
+  nav .logos #logo-text {
     font-size: 3vw;
   }
-  .view-1 nav .logos #svg11433201360 {
+  nav .logos #svg11433201360 {
     height: 1.1vw;
   }
-  .view-1 nav .right {
+  nav .right {
     gap: 2vw;
   }
-  .view-1 nav .right .part-1 {
+  nav .right .part-1 {
     display: flex;
     align-items: center;
     gap: 1vw;
   }
-  .view-1 nav .right .part-1 h4 {
+  nav .right .part-1 h4 {
     text-transform: uppercase;
     font-size: 1.1vw;
     font-weight: 300;
     margin: 0 1vw;
     cursor: pointer;
   }
-  .view-1 nav .right .part-2 button {
+  nav .right .part-2 button {
     display: block;
     border: none;
     background-color: var(--foreground-text);
@@ -105,7 +105,7 @@ nav .right .part-2 .custom-menu-trigger {
     letter-spacing: 1px;
     border-radius: 0.3rem;
   }
-  .view-1 nav .right .part-2 .links {
+  nav .right .part-2 .links {
     display: flex;
     gap: 1.2vw;
     margin: 0 1.2vw;
@@ -113,7 +113,7 @@ nav .right .part-2 .custom-menu-trigger {
     border-right: 1px solid var(--border-color);
     padding: 0 1.4vw;
   }
-  .view-1 nav .right .part-2 .links .link {
+  nav .right .part-2 .links .link {
     height: 2.3vw;
     width: 2.3vw;
     position: relative;
@@ -123,10 +123,10 @@ nav .right .part-2 .custom-menu-trigger {
     border-radius: 50%;
     border: 1px solid var(--border-color);
   }
-  .view-1 nav .right .part-2 .links .link a {
+  nav .right .part-2 .links .link a {
     font-size: 1vw;
   }
-  .view-1 nav .right .part-2 #toggle {
+  nav .right .part-2 #toggle {
     padding: 0.3vw;
     width: 4.5vw;
     height: 2.2vw;
@@ -136,21 +136,21 @@ nav .right .part-2 .custom-menu-trigger {
     transition: all 0.3s ease;
     border-radius: 9999px;
   }
-  .view-1 nav .right .part-2 #toggle i {
+  nav .right .part-2 #toggle i {
     font-size: 1.4vw;
     line-height: 1;
   }
-  .view-1 nav .right .part-2 i.ri-menu-fill,
-  .view-1 nav .right .part-2 .custom-menu-trigger {
+  nav .right .part-2 i.ri-menu-fill,
+  nav .right .part-2 .custom-menu-trigger {
     display: none;
   }
 
 }
 
-[data-theme="light"] .view-1 nav .right .part-2 #toggle {
+[data-theme="light"] nav .right .part-2 #toggle {
   justify-content: flex-start;
 }
 
-[data-theme="dark"] .view-1 nav .right .part-2 #toggle {
+[data-theme="dark"] nav .right .part-2 #toggle {
   justify-content: flex-end;
 }
