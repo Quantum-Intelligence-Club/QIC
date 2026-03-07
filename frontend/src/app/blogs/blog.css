@@ -25,7 +25,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 2vw;
 }
+
+.corner-svg {
+  position: absolute;
+  color: var(--blog-accent);
+  opacity: 0.6;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.blog-header:hover .corner-svg {
+  opacity: 1;
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 15px var(--blog-accent));
+}
+
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
 
 .blog-header .logo-large {
   font-family: var(--blog-font-display);

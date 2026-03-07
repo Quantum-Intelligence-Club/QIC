@@ -1,3 +1,7 @@
+footer {
+  background-color: var(--background-bg);
+}
+
 footer .line {
   height: 1px;
   width: 100%;

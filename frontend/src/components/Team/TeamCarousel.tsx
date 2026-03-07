@@ -36,7 +36,7 @@ export default function TeamCarousel({ members, onSelect }: TeamCarouselProps) {
   ];
 
   return (
-    <div className="h-[85vh] md:h-screen w-full flex flex-col items-center justify-center relative px-6 md:px-12 lg:px-24 scale-[0.8] origin-top -mt-8 md:-mt-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center relative px-6 md:px-12 lg:px-24 md:scale-[0.8] md:origin-top -mt-8 md:-mt-12 py-20 md:py-0">
 
 
       <div className="w-full max-w-[1600px] grid grid-cols-1 lg:grid-cols-12 gap-12 h-[70vh] items-center">
@@ -115,10 +115,9 @@ export default function TeamCarousel({ members, onSelect }: TeamCarouselProps) {
         </div>
       </div>
 
-      {/* Footer Navigation & Name display */}
-      <div className="absolute bottom-4 w-full px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-end md:items-center z-[100]">
+      <div className="absolute md:fixed bottom-4 left-0 w-full px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center md:items-center z-[100] bg-[#f4f1ea]/80 backdrop-blur-sm md:bg-transparent py-4 md:py-0">
          {/* Center Controls aligned with the active image visually */}
-         <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-24 flex flex-col items-center gap-6">
+         <div className="relative md:absolute left-0 md:left-1/2 md:transform md:-translate-x-1/2 bottom-0 flex flex-col items-center gap-4 md:gap-6">
              <div className="text-center space-y-2">
                  <motion.h3 
                    key={activeIndex}
