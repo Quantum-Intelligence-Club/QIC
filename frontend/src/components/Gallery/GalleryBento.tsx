@@ -1,6 +1,7 @@
 "use client";
-
 import React, { useRef } from "react";
+import { slugify } from "@/lib/utils";
+import Link from "next/link";
 import { pastEvents } from "@/lib/data/past-events";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -128,7 +129,7 @@ export const GalleryBento = () => {
                       </p>
                       
                       {/* View Button */}
-                      <button className="gsap-button !mt-2 md:!mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group">
+                      <Link href={`/events/${slugify(event.title)}`} className="gsap-button !mt-2 md:!mt-8 bg-neutral-900 rounded-full flex items-center shadow-md transform-gpu transition-all hover:-translate-y-1 hover:shadow-xl hover:bg-neutral-800 active:scale-95 group no-underline">
                         <span 
                           className="text-white font-mono text-[10px] md:text-xs uppercase tracking-[0.1em] py-3 md:py-4 whitespace-nowrap block"
                           style={{ paddingLeft: '24px', paddingRight: '12px' }}
@@ -138,7 +139,7 @@ export const GalleryBento = () => {
                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center mr-2 shrink-0 group-hover:bg-[#84cc16] transition-colors duration-300">
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                         </div>
-                      </button>
+                      </Link>
                     </div>
 
                     {/* Right: Featured Image with Custom SVG Container */}
