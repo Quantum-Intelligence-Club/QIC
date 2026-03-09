@@ -34,10 +34,11 @@ export const metadata: Metadata = {
   },
 };
 
+import { Suspense } from "react";
 import { StairsProvider } from "@/components/stairs/StairsContext";
 import StairsWrapper from "@/components/stairs/StairsWrapper";
 import MusicBox from "@/components/MusicBox";
-import { Suspense } from "react";
+import { RootErrorLogger } from "@/components/RootErrorLogger";
 
 export default function RootLayout({
   children,
@@ -53,6 +54,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
+        <RootErrorLogger />
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="light"

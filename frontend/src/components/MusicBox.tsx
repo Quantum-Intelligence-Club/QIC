@@ -12,21 +12,24 @@ const MusicBox = ({ showMusicBurger = true }: { showMusicBurger?: boolean }) => 
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     const music = backgroundMusicRef.current;
     if (!music) return;
 
     music.volume = 0.5;
 
     const startAudio = () => {
+      if (!isMounted) return;
       music.play()
         .then(() => {
+          if (!isMounted) return;
           setIsPlaying(true);
           // Remove listeners once playing starts
           window.removeEventListener("click", startAudio);
           window.removeEventListener("touchstart", startAudio);
         })
         .catch(e => {
-          console.log("Play failed:", e);
+          if (isMounted) console.log("Play failed:", e);
         });
     };
 
@@ -38,6 +41,7 @@ const MusicBox = ({ showMusicBurger = true }: { showMusicBurger?: boolean }) => 
     window.addEventListener("touchstart", startAudio);
 
     return () => {
+      isMounted = false;
       window.removeEventListener("click", startAudio);
       window.removeEventListener("touchstart", startAudio);
     };

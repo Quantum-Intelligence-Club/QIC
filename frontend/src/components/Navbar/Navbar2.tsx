@@ -138,7 +138,7 @@ const Navbar2: React.FC = () => {
     <>
       <nav>
         <div className="logos">
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 'inherit', textDecoration: 'none', color: 'inherit' }}>
+          <Link href="/" prefetch={false} style={{ display: 'flex', alignItems: 'center', gap: 'inherit', textDecoration: 'none', color: 'inherit' }}>
             <img src="/logo.png" alt="QIC Logo" id="logo-img" />
             <span id="logo-text">QIC</span>
           </Link>
@@ -149,6 +149,7 @@ const Navbar2: React.FC = () => {
               <Link 
                 key={item.name} 
                 href={item.href} 
+                prefetch={false}
                 onClick={(e) => handleScroll(e, item.href)}
               >
                 <h4 className="hovering-elements">{item.name}</h4>
@@ -218,6 +219,7 @@ const Navbar2: React.FC = () => {
                   href={item.href}
                   ref={(el) => { if (el) linksRef.current[index] = el; }}
                   className="transition-all duration-300 cursor-pointer hover:opacity-30 inline-block py-2"
+                  prefetch={false}
                   onClick={(e) => {
                     handleScroll(e, item.href);
                     if (isOpen) toggleMenu();
