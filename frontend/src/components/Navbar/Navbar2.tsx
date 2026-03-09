@@ -84,6 +84,8 @@ const Navbar2: React.FC = () => {
             gsap.set(navRef.current, { display: 'none' });
           }
           setIsMenuVisible(false);
+        }).catch(() => {
+          // Silent catch for interrupted animations
         });
       }
     } else {
@@ -92,7 +94,9 @@ const Navbar2: React.FC = () => {
         gsap.set(navRef.current, { display: 'flex' });
       }
       if (tl.current) {
-        tl.current.play();
+        tl.current.play().catch(() => {
+          // Silent catch for interrupted animations
+        });
       }
     }
     setIsOpen(!isOpen);

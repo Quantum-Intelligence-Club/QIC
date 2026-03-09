@@ -79,11 +79,15 @@ export function ScrollGallery({ items }: ScrollGalleryProps) {
     gsap.ticker.add(onScrollUpdate);
 
     const handleResize = () => {
-      const isMobile = window.innerWidth < 1000;
-      rowStartWidth.current = isMobile ? 250 : 125;
-      rowEndWidth.current = isMobile ? 750 : 500;
+      if (rows.length === 0) return;
+
+      const currentIsMobile = window.innerWidth < 1000;
+      rowStartWidth.current = currentIsMobile ? 250 : 125;
+      rowEndWidth.current = currentIsMobile ? 750 : 500;
 
       const currentFirstRow = rows[0];
+      if (!currentFirstRow) return;
+
       const prevW = currentFirstRow.style.width;
       currentFirstRow.style.width = `${rowEndWidth.current}%`;
       const newRowHeight = currentFirstRow.offsetHeight;
@@ -94,7 +98,7 @@ export function ScrollGallery({ items }: ScrollGalleryProps) {
         sectionGap * (rows.length - 1) +
         sectionPaddingTop + sectionPaddingBottom;
 
-      section.style.height = `${newSectionHeight}px`;
+      if (section) section.style.height = `${newSectionHeight}px`;
     };
 
     window.addEventListener("resize", handleResize);

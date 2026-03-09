@@ -10,7 +10,12 @@ interface EventPageProps {
 }
 
 export default async function EventDetailPage({ params }: EventPageProps) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+
+  if (!slug) {
+     notFound();
+  }
 
   // Find event by comparing slugified titles
   const event = pastEvents.find((e) => slugify(e.title) === slug);

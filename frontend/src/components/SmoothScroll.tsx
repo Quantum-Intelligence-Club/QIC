@@ -19,18 +19,23 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     });
 
     lenisRef.current = lenis;
+    let rafId: number;
 
     // Use requestAnimationFrame to update Lenis on every frame
     function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      if (lenisRef.current) {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Clean up on unmount
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
