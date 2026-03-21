@@ -19,6 +19,7 @@ exports.createApplication = async (req, res) => {
 
 exports.getApplications = async (req, res) => {
     try {
+        
         const apps = await Application.find().sort({ createdAt: -1 });
         res.json(apps);
     } catch (err) {
