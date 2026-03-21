@@ -1,13 +1,54 @@
 "use client";
-import './Contact.css';
-import '../contact.css';
+import "./Contact.css";
+import "../contact.css";
+
+import { useState } from "react";
+
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: "",
+});
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("http://localhost:5000/api/apply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    alert(data.message);
+
+    // reset form
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong");
+  }
+};
+
   return (
     <section className="contact-bento-section" id="contact">
-      
       {/* SVG Clip Path Definitions */}
-      <svg width="0" height="0" style={{ position: 'absolute' }}>
+      <svg width="0" height="0" style={{ position: "absolute" }}>
         <defs>
           {/* Dark card: bottom-right notch */}
           <clipPath id="contact-clip-dark" clipPathUnits="objectBoundingBox">
@@ -19,24 +60,51 @@ export function Contact() {
           </clipPath>
         </defs>
       </svg>
-      
+
       {/* Left Column: Form */}
       <div className="contact-left">
         <div className="contact-header">
           <h5>Membership</h5>
-          <h1>Join the <br /> Revolution</h1>
+          <h1>
+            Join the <br /> Revolution
+          </h1>
         </div>
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <input type="text" placeholder="Name" className="form-input" />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              className="form-input"
+              value={formData.name}
+              onChange={handleChange}
+            />
           </div>
+
           <div className="form-group">
-            <input type="email" placeholder="Email" className="form-input" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="form-input"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
+
           <div className="form-group">
-            <textarea placeholder="Why do you want to join QIC?" className="form-textarea" rows={3}></textarea>
+            <textarea
+              name="message"
+              placeholder="Why do you want to join QIC?"
+              className="form-textarea"
+              rows={3}
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
           </div>
-          <button type="submit" className="form-button">Apply Now</button>
+          <button type="submit" className="form-button">
+            Apply Now
+          </button>
         </form>
       </div>
 
@@ -45,32 +113,45 @@ export function Contact() {
 
       {/* Right Column: Bento Info Cards + Map */}
       <div className="contact-right">
-        
         {/* Card 1: Email — SVG clipped bottom-right */}
-        <div className="contact-info-card dark-card" style={{ clipPath: "url(#contact-clip-dark)" }}>
+        <div
+          className="contact-info-card dark-card"
+          style={{ clipPath: "url(#contact-clip-dark)" }}
+        >
           <div className="card-icon-wrap">
             <i className="ri-mail-line"></i>
           </div>
           <h5>General Inquiries</h5>
           <h4>qic.vitb@gmail.com</h4>
         </div>
-        
+
         {/* Card 2: Location — SVG clipped top-left */}
-        <div className="contact-info-card accent-card" style={{ clipPath: "url(#contact-clip-accent)" }}>
+        <div
+          className="contact-info-card accent-card"
+          style={{ clipPath: "url(#contact-clip-accent)" }}
+        >
           <div className="card-icon-wrap">
             <i className="ri-map-pin-line"></i>
           </div>
           <h5>Location</h5>
-          <h4>VIT Bhopal University, <br /> Sehore, MP 466114</h4>
+          <h4>
+            VIT Bhopal University, <br /> Sehore, MP 466114
+          </h4>
         </div>
-        
+
         {/* Card 3: Social (spans full width) */}
         <div className="contact-info-card social-card">
           <h5>Social Connect</h5>
           <div className="social-grid">
-            <a href="#" className="social-pill"><i className="ri-linkedin-box-fill"></i> LinkedIn</a>
-            <a href="#" className="social-pill"><i className="ri-discord-fill"></i> Discord</a>
-            <a href="#" className="social-pill"><i className="ri-instagram-line"></i> Instagram</a>
+            <a href="#" className="social-pill">
+              <i className="ri-linkedin-box-fill"></i> LinkedIn
+            </a>
+            <a href="#" className="social-pill">
+              <i className="ri-discord-fill"></i> Discord
+            </a>
+            <a href="#" className="social-pill">
+              <i className="ri-instagram-line"></i> Instagram
+            </a>
           </div>
         </div>
 
@@ -87,10 +168,11 @@ export function Contact() {
             title="VIT Bhopal University Location"
           ></iframe>
           <div className="map-overlay">
-            <span><i className="ri-map-pin-2-fill"></i> VIT Bhopal University</span>
+            <span>
+              <i className="ri-map-pin-2-fill"></i> VIT Bhopal University
+            </span>
           </div>
         </div>
-
       </div>
     </section>
   );
