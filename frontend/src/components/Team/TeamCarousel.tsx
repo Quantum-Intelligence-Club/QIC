@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, Sparkles, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, ChevronRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { TeamMember, departments, DepartmentType } from "./data";
 import clsx from "clsx";
@@ -155,42 +155,46 @@ export default function TeamCarousel({
               Discover the passionate builders, innovators, and leaders driving the Quantum Intelligence Club forward.
             </p>
 
-            {/* Active Member Preview Box - Clean tone that matches the webpage perfectly */}
+            {/* Active Member Spotlight - Minimal & Editorial */}
             {currentMember && (
               <motion.div
                 key={currentMember.id}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-5 rounded-2xl border border-[var(--border-color)]/40 bg-[var(--background-bg)] shadow-sm space-y-3 cursor-pointer hover:border-[var(--border-color)] transition-all group"
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="pt-5 border-t border-[var(--border-color)]/20 flex flex-col gap-2 cursor-pointer group select-none"
                 onClick={() => onSelect(currentMember)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#FF6B6B]">
+                <div className="flex items-center gap-2.5 text-xs font-mono tracking-widest uppercase">
+                  <span className="text-[#FF6B6B] font-bold">
                     {currentMember.role}
                   </span>
+                  <span className="opacity-30">•</span>
                   {currentMember.isPlaceholder ? (
-                    <span className="text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/40 text-amber-600 dark:text-amber-400 font-mono">
+                    <span className="text-amber-600 dark:text-amber-400 font-medium">
                       TBA / OPEN
                     </span>
                   ) : (
-                    <span className="text-[10px] uppercase font-mono opacity-50">
+                    <span className="opacity-60">
                       {currentMember.department}
                     </span>
                   )}
                 </div>
 
-                <div>
-                  <h3 className="text-2xl font-playfair font-bold text-[var(--foreground-text)]">
-                    {currentMember.name}
-                  </h3>
-                  <p className="text-sm text-[var(--foreground-text)] opacity-70 font-sans mt-0.5">
-                    {currentMember.title}
-                  </p>
-                </div>
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-playfair font-bold text-[var(--foreground-text)] group-hover:text-[#FF6B6B] transition-colors leading-tight">
+                      {currentMember.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[var(--foreground-text)] opacity-70 font-sans mt-0.5">
+                      {currentMember.title}
+                    </p>
+                  </div>
 
-                <div className="pt-2 border-t border-[var(--border-color)]/15 flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[var(--foreground-text)] opacity-70 group-hover:opacity-100 transition-opacity">
-                  <span>View Full Profile</span>
-                  <ChevronRight className="w-4 h-4 text-[#FF6B6B] group-hover:translate-x-1 transition-transform" />
+                  <div className="shrink-0 flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[var(--foreground-text)] opacity-60 group-hover:opacity-100 group-hover:text-[#FF6B6B] transition-all pb-1">
+                    <span className="hidden sm:inline">Profile</span>
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
                 </div>
               </motion.div>
             )}
