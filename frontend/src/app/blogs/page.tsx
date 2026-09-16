@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar2 from "@/components/Navbar/Navbar2";
 import { Footer } from "@/components/Footer/Footer";
 import { BlogHeader } from '@/components/Blog/BlogLayout';
@@ -7,6 +8,20 @@ import SpotlightSection from '@/components/Blog/SpotlightSection';
 import { NewsletterSection, MomentsSection } from '@/components/Blog/BlogSections';
 import './blog.css';
 
+export const metadata: Metadata = {
+  title: "Blogs & Tech Insights",
+  description:
+    "Read articles, research spotlights, podcasts, and deep dives on Quantum Computing and AI by the Quantum Intelligence Club at VIT Bhopal University.",
+  alternates: {
+    canonical: "/blogs",
+  },
+  openGraph: {
+    title: "Blogs & Tech Insights | QIC VIT Bhopal",
+    description:
+      "Read articles, research spotlights, podcasts, and deep dives on Quantum Computing and AI by the Quantum Intelligence Club at VIT Bhopal University.",
+    url: "/blogs",
+  },
+};
 
 export default function BlogPage() {
   return (

@@ -4,8 +4,19 @@ import GalleryBentoClient from "@/components/Gallery/GalleryBentoClient";
 import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Gallery - QIC Quantum Intelligence Club",
-  description: "A professional showcase of past events, workshops, and achievements of the Quantum Intelligence Club.",
+  title: "Gallery & Highlights",
+  description:
+    "A showcase of past events, quantum workshops, team hackathons, and achievements of the Quantum Intelligence Club at VIT Bhopal University.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Gallery & Highlights | QIC VIT Bhopal",
+    description:
+      "A showcase of past events, quantum workshops, team hackathons, and achievements of the Quantum Intelligence Club at VIT Bhopal University.",
+    url: "/gallery",
+    images: ["/hero.jpeg"],
+  },
 };
 
 export default function GalleryPage() {

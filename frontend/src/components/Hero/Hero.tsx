@@ -14,7 +14,7 @@ export function Hero() {
         </div>
       </div>
       <div className="bottom">
-        <img src="/hero.jpeg" alt="Hero" />
+        <img src="/hero.jpeg" alt="Quantum Intelligence Club - QIC VIT Bhopal" />
       </div>
     </div>
   );

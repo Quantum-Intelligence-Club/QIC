@@ -7,11 +7,17 @@ import { Footer } from "@/components/Footer/Footer";
 import "./events.css";
 
 export const metadata: Metadata = {
-  title: "Events - QIC Quantum Intelligence Club",
-  description: "Upcoming events and workshops by the Quantum Intelligence Club at VIT Bhopal University.",
+  title: "Events & Workshops",
+  description:
+    "Explore upcoming hackathons, guest lectures, quantum workshops, and tech seminars by the Quantum Intelligence Club at VIT Bhopal University.",
+  alternates: {
+    canonical: "/events",
+  },
   openGraph: {
-    title: "Events - QIC Quantum Intelligence Club",
-    description: "Upcoming events and workshops by the Quantum Intelligence Club at VIT Bhopal University.",
+    title: "Events & Workshops | QIC VIT Bhopal",
+    description:
+      "Explore upcoming hackathons, guest lectures, quantum workshops, and tech seminars by the Quantum Intelligence Club at VIT Bhopal University.",
+    url: "/events",
     images: ["/hero.jpeg"],
   },
 };

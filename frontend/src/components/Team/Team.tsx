@@ -10,7 +10,7 @@ export function Team() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
-    <div className="w-full bg-[#f4f1ea] text-[#1a1a1a] overflow-hidden font-sans relative" id="team">
+    <div className="w-full bg-[var(--background-bg)] text-[var(--foreground-text)] overflow-hidden font-sans relative" id="team">
       <AnimatePresence mode="wait">
         {selectedMember ? (
           <TeamMemberDetail
